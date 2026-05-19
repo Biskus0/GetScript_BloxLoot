@@ -2,6 +2,10 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
+if PlayerGui:FindFirstChild("SelectionGUI") then
+	return
+end
+
 local function CreateButton(text, pos, parent, callback)
     local button = Instance.new("TextButton", parent)
     button.Size = UDim2.new(0, 145, 0, 60)
@@ -20,6 +24,7 @@ local function CreateButton(text, pos, parent, callback)
 end
 
 local screenGui = Instance.new("ScreenGui", PlayerGui)
+screenGui.Name = "SelectionGUI"
 screenGui.ResetOnSpawn = false
 
 local mainFrame = Instance.new("Frame", screenGui)
